@@ -1,0 +1,21 @@
+CREATE TABLE Student(
+    Student_ID varchar(10) PRIMARY KEY, 
+    Student_Email varchar(30), 
+    Student_Password varchar(15), 
+    Student_Name varchar(50),
+    Major varchar(35)
+);
+
+create table Course(
+	  Course_ID varchar(10) PRIMARY KEY, 
+      Course_Name varchar(30)
+);
+
+create table StudentCourseRelation (
+    Student_ID varchar(10) NOT NULL, 
+	Course_ID varchar(10) NOT NULL, 
+    Mark int,
+	FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID), 
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
+    UNIQUE (Student_ID, Course_ID)
+);
